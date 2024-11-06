@@ -1,14 +1,18 @@
 from tkinter import *
 from tkinter import ttk
-a = 3
-def click_btn1(a=3):
-    a = a + 1
+def click_btn1():
+    print("function1")
 
+def click_btn2():
+    print("function2")
+
+def click_btn3():
+    print("function3")
 tk = Tk()
 tk.title("Resistors")
 canvas = Canvas(tk, height=700, width=1000)
 
-canvas.create_text(10, 10, text='Гришка - какашка', fill="#004D40")
+canvas.create_text(10, 10, text='Выберите тип цепи', fill="#004D40")
 
 btn1 = ttk.Button(text="Последовательное", command=click_btn1)
 btn1.pack()
