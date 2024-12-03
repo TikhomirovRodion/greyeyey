@@ -30,6 +30,12 @@ def click_btn1():
     canvas.create_text(501, 100, text='R2', fill="#004D40")
     canvas.create_text(673, 100, text='R3', fill="#004D40")
 
+    entry1 = ttk.Label()
+    entry1.pack(x=300, y=500)
+    entry = ttk.Entry()
+    entry.pack(x=300, y=500)
+    entry1["text"] = entry.get()
+
 def click_btn2():
     print("function2")
     canvas.delete('all')
