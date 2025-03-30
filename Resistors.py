@@ -40,11 +40,11 @@ def click_btn1():
     R3 = randint(1, 5)
     Uv = randint(6, 12)
 
-    I = Uv / (R1 + R2 + R3)
-    print(round(I * R1, 2))
-    print(round(I * R2, 2))
-    print(round(I * R3, 2))
-    print(round(I, 2))
+    #I = Uv / (R1 + R2 + R3)
+    #print(round(I * R1, 2))
+    #print(round(I * R2, 2))
+    #print(round(I * R3, 2))
+    #print(round(I, 2))
 
     text = ("R1 = " + str(R1) + ' Ом;   R2 = ' + str(R2) + ' Ом;   R3 = ' + str(R3) + ' Ом;   Uv = ' + str(Uv) + ' B')
     canvas.create_text(397, 405, text=text)
