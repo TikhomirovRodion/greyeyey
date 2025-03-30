@@ -1,14 +1,19 @@
 from tkinter import *
 from tkinter import ttk
+import time
 def click_btn1():
+    def click_res_posl():
+        entry1["text"] = entry.get()
     print("function1")
     canvas.delete('all')     #Очистка окна
+
+    canvas.create_line(200, 100, 200, 300)      #Создание боковых проводов
+    canvas.create_line(802, 100, 802, 300)
+
     btn3.destroy()
     btn2.destroy()
     btn1.destroy()
 
-    canvas.create_line(200, 100, 200, 300)      #Создание боковых проводов
-    canvas.create_line(802, 100, 802, 300)
 
     n=0                                 #Создание цепочки резисторов
     for i in range(0, 3):
@@ -30,11 +35,17 @@ def click_btn1():
     canvas.create_text(501, 100, text='R2', fill="#004D40")
     canvas.create_text(673, 100, text='R3', fill="#004D40")
 
-    entry1 = ttk.Label()
-    entry1.pack(x=300, y=500)
-    entry = ttk.Entry()
-    entry.pack(x=300, y=500)
-    entry1["text"] = entry.get()
+    #entry1 = ttk.Label()
+    #entry1.place(x=300, y=500)
+    #entry = ttk.Entry()
+    #entry.place(x=300, y=500)
+
+    entry = Entry(tk, width=30)
+    entry.pack()
+
+    btn_res_posl = ttk.Button(text="Последовательное", command=click_res_posl)
+    btn_res_posl.place(x=420, y=80)
+
 
 def click_btn2():
     print("function2")
