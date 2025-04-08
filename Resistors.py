@@ -26,6 +26,14 @@ def click_btn1():
     canvas.create_line(200, 300, 496, 300)      #Создание нижних проводов
     canvas.create_line(506, 300, 802, 300)
 
+    canvas.create_line(400, 300, 400, 200)      #Создание вольтметра
+    canvas.create_line(600, 300, 600, 200)
+    canvas.create_line(400, 200, 470, 200)
+    canvas.create_line(530, 200, 600, 200)
+    canvas.create_text(500, 200, text='V')
+
+    canvas.create_oval(470, 170, 530, 230)
+
     canvas.create_line(496, 285, 496, 315)      #Создание источника питания
     canvas.create_line(506, 275, 506, 325)
 
@@ -102,6 +110,100 @@ def click_btn2():
     btn3.destroy()
     btn2.destroy()
     btn1.destroy()
+
+    canvas.create_line(200, 300, 496, 300)  # Создание нижних проводов
+    canvas.create_line(506, 300, 802, 300)
+
+    canvas.create_line(496, 285, 496, 315)  # Создание источника питания
+    canvas.create_line(506, 275, 506, 325)
+
+    canvas.create_line(200, 100, 200, 300)  # Создание боковых проводов
+    canvas.create_line(802, 100, 802, 300)
+
+    canvas.create_line(200, 100, 440, 100)  #Создание цепочки резисторов
+    canvas.create_line(440, 80, 560, 80)
+    canvas.create_line(440, 120, 560, 120)
+    canvas.create_line(440, 80, 440, 120)
+    canvas.create_line(560, 80, 560, 120)
+    canvas.create_line(560, 100, 802, 100)
+
+    canvas.create_line(320, 40, 320, 160)
+    canvas.create_line(320, 40, 440, 40)
+    canvas.create_line(320, 160, 440, 160)
+    canvas.create_line(440, 20, 440, 60)
+    canvas.create_line(440, 140, 440, 180)
+    canvas.create_line(440, 20, 560, 20)
+    canvas.create_line(440, 60, 560, 60)
+    canvas.create_line(440, 140, 560, 140)
+    canvas.create_line(440, 180, 560, 180)
+    canvas.create_line(560, 20, 560, 60)
+    canvas.create_line(560, 140, 560, 180)
+    canvas.create_line(560, 40, 680, 40)
+    canvas.create_line(560, 160, 680, 160)
+    canvas.create_line(680, 40, 680, 160)
+
+    canvas.create_text(365, 430, text='Ответы запишите в формате: X.XX')
+
+    R1 = randint(1, 5)
+    R2 = randint(1, 5)
+    R3 = randint(1, 5)
+    Ia = randint(6, 12)
+
+    # I = Uv / (R1 + R2 + R3)
+    # print(round(I * R1, 2))
+    # print(round(I * R2, 2))
+    # print(round(I * R3, 2))
+    # print(round(I, 2))
+
+    text = ("R1 = " + str(R1) + ' Ом;   R2 = ' + str(R2) + ' Ом;   R3 = ' + str(R3) + ' Ом;   Ia = ' + str(Ia) + ' A')
+    canvas.create_text(397, 405, text=text)
+    canvas.create_text(220, 465, text='I1')
+    canvas.create_text(220, 490, text='I2')
+    canvas.create_text(220, 515, text='I3')
+    canvas.create_text(220, 540, text='U')
+
+    def click_btnAnsw():
+        answI1 = entryI1.get()
+        answI2 = entryI2.get()
+        answI3 = entryI3.get()
+        answUcom = entryUcom.get()
+        # print(answU1)
+        Rcom = 1 / (1 / R1 + 1 / R2 + 1 / R3)
+        Ucom = Ia * Rcom
+        I1 = Ucom / R1
+        I2 = Ucom / R2
+        I3 = Ucom / R3
+        if float(answI1) == round(I1, 2):
+            canvas.create_text(675, 465, text='Да')
+        else:
+            canvas.create_text(675, 465, text='Нет')
+
+        if float(answI2) == round(I2, 2):
+            canvas.create_text(675, 490, text='Да')
+        else:
+            canvas.create_text(675, 490, text='Нет')
+
+        if float(answI3) == round(I3, 2):
+            canvas.create_text(675, 515, text='Да')
+        else:
+            canvas.create_text(675, 515, text='Нет')
+
+        if float(answUcom) == round(Ucom, 2):
+            canvas.create_text(675, 540, text='Да')
+        else:
+            canvas.create_text(675, 540, text='Нет')
+
+    btnAnsw = ttk.Button(text="Ответ", command=click_btnAnsw)
+    btnAnsw.place(x=550, y=450)
+
+    entryI1 = ttk.Entry(width=30)
+    entryI1.place(x=250, y=450)
+    entryI2 = ttk.Entry(width=30)
+    entryI2.place(x=250, y=475)
+    entryI3 = ttk.Entry(width=30)
+    entryI3.place(x=250, y=500)
+    entryUcom = ttk.Entry(width=30)
+    entryUcom.place(x=250, y=525)
 
 def click_btn3():
     print("function3")
