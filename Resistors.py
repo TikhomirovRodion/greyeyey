@@ -35,7 +35,6 @@ def click_btn1():
     canvas1.create_line(400, 200, 470, 200)
     canvas1.create_line(530, 200, 600, 200)
     canvas1.create_text(500, 200, text='V')
-
     canvas1.create_oval(470, 170, 530, 230)
 
     canvas1.create_line(496, 285, 496, 315)  # Создание источника питания
@@ -78,6 +77,10 @@ def click_btn1():
         U1 = I * R1
         U2 = I * R2
         U3 = I * R3
+        print(round(U1, 2))
+        print(round(U2, 2))
+        print(round(U3, 2))
+        print(round(I, 2))
         if float(answU1) == round(U1, 2):
             label1.config(text='Да')
             label1.place(x=700, y=450)
@@ -196,6 +199,10 @@ def click_btn2():
         I1 = Ucom / R1
         I2 = Ucom / R2
         I3 = Ucom / R3
+        print(round(I1, 2))
+        print(round(I2, 2))
+        print(round(I3, 2))
+        print(round(Ucom, 2))
         if float(answI1) == round(I1, 2):
             label1.config(text='Да')
             label1.place(x=675, y=450)
@@ -281,6 +288,17 @@ def click_btn3():
     canvas3.create_line(750, 130, 750, 70)
     canvas3.create_line(802, 100, 750, 100)
 
+    canvas3.create_text(350, 100, text='R1')  # Создание обозначений резисторов
+    canvas3.create_text(650, 130, text='R2')
+    canvas3.create_text(650, 70, text='R3')
+
+    canvas3.create_line(400, 300, 400, 200)  # Создание вольтметра
+    canvas3.create_line(600, 300, 600, 200)
+    canvas3.create_line(400, 200, 470, 200)
+    canvas3.create_line(530, 200, 600, 200)
+    canvas3.create_text(500, 200, text='V')
+    canvas3.create_oval(470, 170, 530, 230)
+
     canvas3.create_text(365, 430, text='Ответы запишите в формате: X.XX')
 
     R1 = randint(1, 5)
@@ -333,56 +351,62 @@ def click_btn3():
         I2 = U2 / R2
         I3 = U3 / R3
 
-
+        print(round(Icom, 2))
+        print(round(U1, 2))
+        print(round(U2, 2))
+        print(round(U3, 2))
+        print(round(I1, 2))
+        print(round(I2, 2))
+        print(round(I3, 2))
 
         if float(answI) == round(Icom, 2):
             label1.config(text='Да')
-            label1.place(x=700, y=525)
+            label1.place(x=700, y=450)
         else:
             label1.config(text='Нет')
-            label1.place(x=700, y=525)
+            label1.place(x=700, y=450)
 
         if float(answU1) == round(U1, 2):
             label2.config(text='Да')
-            label2.place(x=700, y=450)
+            label2.place(x=700, y=475)
         else:
             label2.config(text='Нет')
-            label2.place(x=700, y=450)
+            label2.place(x=700, y=475)
 
         if float(answU2) == round(U2, 2):
             label3.config(text='Да')
-            label3.place(x=700, y=475)
+            label3.place(x=700, y=500)
         else:
             label3.config(text='Нет')
-            label3.place(x=700, y=475)
+            label3.place(x=700, y=500)
 
         if float(answU3) == round(U3, 2):
             label4.config(text='Да')
-            label4.place(x=700, y=500)
+            label4.place(x=700, y=525)
         else:
             label4.config(text='Нет')
-            label4.place(x=700, y=500)
+            label4.place(x=700, y=525)
 
         if float(answI1) == round(I1, 2):
             label5.config(text='Да')
-            label5.place(x=700, y=525)
+            label5.place(x=700, y=550)
         else:
             label5.config(text='Нет')
-            label5.place(x=700, y=525)
+            label5.place(x=700, y=550)
 
         if float(answI2) == round(I2, 2):
             label6.config(text='Да')
-            label6.place(x=700, y=525)
+            label6.place(x=700, y=575)
         else:
             label6.config(text='Нет')
-            label6.place(x=700, y=525)
+            label6.place(x=700, y=575)
 
         if float(answI3) == round(I3, 2):
             label7.config(text='Да')
-            label7.place(x=700, y=525)
+            label7.place(x=700, y=600)
         else:
             label7.config(text='Нет')
-            label7.place(x=700, y=525)
+            label7.place(x=700, y=600)
 
     btnAnsw = ttk.Button(tk3, text="Ответ", command=click_btnAnsw)
     btnAnsw.place(x=550, y=450)
