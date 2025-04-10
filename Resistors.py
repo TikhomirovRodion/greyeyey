@@ -5,13 +5,16 @@ from random import randint
 tk = Tk()
 tk.title("Resistors")
 canvas = Canvas(tk, height=700, width=1000)
-
+tk.maxsize(1000, 800)
+tk.minsize(1000, 800)
 
 def click_btn1():
     print("function1")
     tk1 = Toplevel()  # Открывается новое окно для последовательного соединения
     tk1.title('Последовательное соединение')
     tk1.geometry("1000x800")
+    tk1.maxsize(1000, 800)
+    tk1.minsize(1000, 800)
     canvas1 = Canvas(tk1, height=700, width=1000)
     canvas1.pack()
     canvas1.create_line(200, 100, 200, 300)  # Создание боковых проводов
@@ -127,6 +130,8 @@ def click_btn2():
     tk2 = Toplevel()  # Открывается новое окно для параллельного соединения
     tk2.title('Параллельное соединение')
     tk2.geometry("1000x800")
+    tk2.maxsize(1000, 800)
+    tk2.minsize(1000, 800)
     canvas2 = Canvas(tk2, height=700, width=1000)
     canvas2.pack()
 
@@ -250,6 +255,8 @@ def click_btn3():
     tk3 = Toplevel()  # Открывается новое окно для смешанного соединения
     tk3.title('Смешанное соединение')
     tk3.geometry("1000x800")
+    tk3.maxsize(1000, 800)
+    tk3.minsize(1000, 800)
     canvas3 = Canvas(tk3, height=700, width=1000)
     canvas3.pack()
 
@@ -329,9 +336,9 @@ def click_btn3():
         answU1 = entryU1.get()
         answU2 = entryU2.get()
         answU3 = entryU3.get()
-        answI1 = entryU1.get()
-        answI2 = entryU2.get()
-        answI3 = entryU3.get()
+        answI1 = entryI1.get()
+        answI2 = entryI2.get()
+        answI3 = entryI3.get()
 
         label1.config(text='')
         label2.config(text='')
